@@ -1,0 +1,19 @@
+state 0: inter-trial interval (monkey has successfully/unsuccessfully completed previous trial and is now moving to the next trial)
+
+state 1: reach start target (no matter where in space monkey is, monkey has to hit the start target <colored blue> - which is in the center of the workspace in case of this data)
+
+state 2: stay on start target (now that monkey has hit the start target, monkey has to stay within the boundary of the start target for a prescribed delay period, typically around 300-500 ms.. you will find this information in c3d.TP_TABLE)
+
+state 3: hold on start target (after successfully staying in start target, end target pops up <in red color> and monkey just has to notice it without moving out of the start target for a prescribed duration as defined in trial protocol (TP) table, typically ~200-500 ms)
+
+state 4: reach end target (end target changing color from red to blue, indicating that now monkey can hit the end target - note that here there is a time constraint, typically one second, during which monkey has to hit end target - or the trial will be unsuccessful)
+
+state 5: stay on end target (after successfully arriving to end target in given time constraint, monkey now has to hold in the boundaries of end target for a prescribed duration, typically ~300-500 ms)
+
+state 6 OR 7: trial successful (if monkey has satisfied the sequence of states 2 to 5, trial is considered successful - otherwise there will be an error flag (states 9 to 13, depending on where the monkey has made an error)
+
+state 6: fake reward (even though successful trial, monkey won't get rewarded <no sound, no drop of water> because of random reward schedule, typically ~40-80% of successful trials get rewarded - find this number in TP table - random reward schedule is important to keep the number of rewards lower and to keep the monkey motivated and attentive)
+
+state 7: real reward (based on random reward schedule - beep sound and water reward for given duration, typically ~250 ms)
+
+state 8: trial completed (and next sequence starting state 0)
